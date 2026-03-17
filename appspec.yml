@@ -5,6 +5,10 @@ files:
     destination: /var/www/html/
 hooks:
   BeforeInstall:
+      #!/bin/bash
+      # Remove any existing index files to prevent conflicts
+      rm -f /var/www/html/index.php
+      rm -f /var/www/html/index.html
     - location: scripts/install_dependencies
       timeout: 300
       runas: root
